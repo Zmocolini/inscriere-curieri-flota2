@@ -1,0 +1,13 @@
+{
+  "name": "bolt-food-inscriere-curieri",
+  "version": "1.0.0",
+  "type": "module",
+  "description": "Pagina oficială de înscriere curieri Bolt Food Partner Fleet - optimizată 100% pentru mobil",
+  "main": "api/submit.js",
+  "scripts": {
+    "start": "npx serve public"
+  },
+  "keywords": ["bolt", "bolt-food", "curieri", "inscriere", "fleet"],
+  "author": "CTD Fleet Delivery",
+  "license": "ISC"
+}
