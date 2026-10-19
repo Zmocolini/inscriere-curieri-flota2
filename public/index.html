@@ -1,0 +1,401 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <title>Înscriere Curier Bolt Food | Flotă Parteneră Oficială</title>
+  
+  <meta name="description" content="Formular oficial de înscriere pentru curieri Bolt Food. Înscrie-te în câteva minute, cu aprobare rapidă!">
+  <meta name="theme-color" content="#00D287">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  
+  <!-- Favicon -->
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%2226%22 font-size=%2226%22>🛵</text></svg>">
+  
+  <!-- Google Fonts: Inter -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <!-- Fundal ambiental / decorativ -->
+  <div class="ambient-glow top-glow"></div>
+  <div class="ambient-glow bottom-glow"></div>
+
+  <main class="app-container">
+    
+    <!-- HEADER BRANDING -->
+    <header class="hero-header">
+      <div class="brand-badge">
+        <span class="bolt-icon">⚡</span>
+        <span class="badge-text">PARTENER OFICIAL FLOTĂ BOLT FOOD</span>
+      </div>
+      
+      <h1 class="hero-title">Înscriere Curier <span>Bolt Food</span></h1>
+      <p class="hero-subtitle">
+        Completează formularul de mai jos pentru a începe să livrezi și să câștigi în orașul tău.
+      </p>
+
+      <!-- BENEFICII RAPIDE -->
+      <div class="benefits-row">
+        <div class="benefit-chip">
+          <span class="chip-icon">💰</span>
+          <span>Plăți Săptămânale</span>
+        </div>
+        <div class="benefit-chip">
+          <span class="chip-icon">⏱️</span>
+          <span>Program Flexibil</span>
+        </div>
+        <div class="benefit-chip">
+          <span class="chip-icon">🚀</span>
+          <span>Activare Rapidă</span>
+        </div>
+      </div>
+    </header>
+
+    <!-- FORMULARUL PRINCIPAL -->
+    <section class="form-wrapper" id="formSection">
+      <form id="courierForm" novalidate>
+        
+        <!-- SECȚIUNEA 1: DATE PERSONALE -->
+        <div class="form-card">
+          <div class="card-header">
+            <div class="step-num">1</div>
+            <div>
+              <h2 class="card-title">Date Personale</h2>
+              <p class="card-desc">Informațiile necesare pentru crearea contului tău de livrator Bolt.</p>
+            </div>
+          </div>
+
+          <!-- NUME ȘI PRENUME -->
+          <div class="form-group">
+            <label for="fullName">
+              Nume și Prenume <span class="req">*</span>
+            </label>
+            <div class="input-wrapper">
+              <span class="input-icon">👤</span>
+              <input 
+                type="text" 
+                id="fullName" 
+                name="fullName" 
+                placeholder="ex. Popescu Andrei Alexandru" 
+                autocomplete="name" 
+                required
+              >
+            </div>
+            <div class="field-error" id="nameError">Te rugăm să introduci numele și prenumele complet.</div>
+          </div>
+
+          <!-- CNP -->
+          <div class="form-group">
+            <div class="label-with-counter">
+              <label for="cnp">
+                CNP (Cod Numeric Personal) <span class="req">*</span>
+              </label>
+              <span class="counter-badge" id="cnpCounter">0 / 13 cifre</span>
+            </div>
+            <div class="input-wrapper">
+              <span class="input-icon">🆔</span>
+              <input 
+                type="tel" 
+                id="cnp" 
+                name="cnp" 
+                placeholder="13 cifre din buletin" 
+                inputmode="numeric" 
+                maxlength="13" 
+                autocomplete="off" 
+                required
+              >
+            </div>
+            <p class="field-hint">Necesar pentru activarea oficială în platforma Bolt RideIT.</p>
+            <div class="field-error" id="cnpError">CNP-ul trebuie să conțină exact 13 cifre numerice.</div>
+          </div>
+
+          <!-- TELEFON -->
+          <div class="form-group">
+            <label for="phone">
+              Număr de Telefon <span class="req">*</span>
+            </label>
+            <div class="input-wrapper">
+              <span class="input-icon">📞</span>
+              <input 
+                type="tel" 
+                id="phone" 
+                name="phone" 
+                placeholder="ex. 0740 123 456" 
+                inputmode="tel" 
+                autocomplete="tel" 
+                required
+              >
+            </div>
+            <div class="field-error" id="phoneError">Introdu un număr valid din România (ex. 07xxxxxxxx).</div>
+          </div>
+
+          <!-- EMAIL -->
+          <div class="form-group">
+            <label for="email">
+              Adresă de Email <span class="req">*</span>
+            </label>
+            <div class="input-wrapper">
+              <span class="input-icon">✉️</span>
+              <input 
+                type="email" 
+                id="email" 
+                name="email" 
+                placeholder="adresa.ta@exemplu.com" 
+                inputmode="email" 
+                autocomplete="email" 
+                required
+              >
+            </div>
+            <p class="field-hint">Pe acest email vei primi invitația și datele de conectare în aplicația Bolt Courier.</p>
+            <div class="field-error" id="emailError">Te rugăm să introduci o adresă de email validă.</div>
+          </div>
+        </div>
+
+        <!-- SECȚIUNEA 2: ORAȘ & VEHICUL -->
+        <div class="form-card">
+          <div class="card-header">
+            <div class="step-num">2</div>
+            <div>
+              <h2 class="card-title">Oraș & Mijloc de Transport</h2>
+              <p class="card-desc">Unde și cum dorești să efectuezi livrările.</p>
+            </div>
+          </div>
+
+          <!-- ORAȘ DE LIVRARE -->
+          <div class="form-group">
+            <label for="city">
+              Orașul în care dorești să livrezi <span class="req">*</span>
+            </label>
+            <div class="input-wrapper select-wrapper">
+              <span class="input-icon">📍</span>
+              <select id="city" name="city" required>
+                <option value="" disabled selected>Alege orașul tău...</option>
+                <option value="Arad">Arad</option>
+                <option value="Bacau">Bacău</option>
+                <option value="Baia Mare">Baia Mare</option>
+                <option value="Botosani">Botoșani</option>
+                <option value="Braila">Brăila</option>
+                <option value="Brasov">Brașov</option>
+                <option value="Bucharest">București</option>
+                <option value="Calarasi">Călărași</option>
+                <option value="Cluj-Napoca">Cluj-Napoca</option>
+                <option value="Constanta">Constanța</option>
+                <option value="Craiova">Craiova</option>
+                <option value="Focsani">Focșani</option>
+                <option value="Galati">Galați</option>
+                <option value="Giurgiu">Giurgiu</option>
+                <option value="Iasi">Iași</option>
+                <option value="Medias">Mediaș</option>
+                <option value="Oradea">Oradea</option>
+                <option value="Piatra Neamt">Piatra Neamț</option>
+                <option value="Ploiesti">Ploiești</option>
+                <option value="Satu Mare">Satu Mare</option>
+                <option value="Sibiu">Sibiu</option>
+                <option value="Slatina">Slatina</option>
+                <option value="Slobozia">Slobozia</option>
+                <option value="Suceava">Suceava</option>
+                <option value="Targu Jiu">Târgu Jiu</option>
+                <option value="Targu Mures">Târgu Mureș</option>
+                <option value="Timisoara">Timișoara</option>
+                <option value="Tulcea">Tulcea</option>
+                <option value="Vaslui">Vaslui</option>
+                <option value="Zalau">Zalău</option>
+              </select>
+            </div>
+            <div class="field-error" id="cityError">Selectează orașul în care dorești să livrezi.</div>
+          </div>
+
+          <!-- TIP VEHICUL -->
+          <div class="form-group">
+            <label>
+              Tip de autovehicul folosit <span class="req">*</span>
+            </label>
+            <div class="vehicle-grid">
+              <label class="vehicle-card active" for="vehCar">
+                <input type="radio" id="vehCar" name="vehicle" value="🚗 Mașină" checked>
+                <div class="vehicle-content">
+                  <span class="v-emoji">🚗</span>
+                  <span class="v-title">Mașină</span>
+                  <span class="v-badge">Popular</span>
+                </div>
+              </label>
+
+              <label class="vehicle-card" for="vehMoto">
+                <input type="radio" id="vehMoto" name="vehicle" value="🛵 Scuter / Motocicletă">
+                <div class="vehicle-content">
+                  <span class="v-emoji">🛵</span>
+                  <span class="v-title">Scuter / Moto</span>
+                  <span class="v-badge">Rapid</span>
+                </div>
+              </label>
+
+              <label class="vehicle-card" for="vehBike">
+                <input type="radio" id="vehBike" name="vehicle" value="🚲 Bicicletă">
+                <div class="vehicle-content">
+                  <span class="v-emoji">🚲</span>
+                  <span class="v-title">Bicicletă</span>
+                  <span class="v-badge">Eco</span>
+                </div>
+              </label>
+            </div>
+          </div>
+        </div>
+
+        <!-- SECȚIUNEA 3: POZĂ BULETIN -->
+        <div class="form-card">
+          <div class="card-header">
+            <div class="step-num">3</div>
+            <div>
+              <h2 class="card-title">Poză Carte de Identitate (Buletin)</h2>
+              <p class="card-desc">Fotografie clară, completă, cu fața cărții de identitate.</p>
+            </div>
+          </div>
+
+          <div class="upload-container" id="uploadContainer">
+            <!-- Zona de selectare fișier -->
+            <div class="upload-dropzone" id="dropzone">
+              <div class="upload-icon-circle">
+                <span>📸</span>
+              </div>
+              <h3 class="dropzone-title">Atașează buletinul</h3>
+              <p class="dropzone-desc">Fă o poză clară acum sau alege din galeria telefonului</p>
+              
+              <div class="upload-actions">
+                <button type="button" class="btn-upload btn-camera" id="btnCamera">
+                  <span>📸 Fă Poză Acum</span>
+                </button>
+                <button type="button" class="btn-upload btn-gallery" id="btnGallery">
+                  <span>📁 Alege din Galerie</span>
+                </button>
+              </div>
+
+              <!-- Inputuri ascunse -->
+              <input type="file" id="cameraInput" accept="image/*" capture="environment" class="hidden-input">
+              <input type="file" id="fileInput" accept="image/*,.pdf" class="hidden-input">
+
+              <div class="upload-specs">
+                <span>✓ Format: JPG, PNG, HEIC, PDF</span>
+                <span>✓ Maxim 15 MB</span>
+                <span>✓ Verificare rapidă și securizată</span>
+              </div>
+            </div>
+
+            <!-- Previzualizare Fișier Încărcat -->
+            <div class="upload-preview hidden" id="previewContainer">
+              <div class="preview-card">
+                <div class="preview-thumb" id="previewThumb">
+                  <img id="previewImg" src="" alt="Previzualizare Buletin">
+                  <div class="preview-pdf hidden" id="pdfIcon">📄 PDF</div>
+                </div>
+                <div class="preview-details">
+                  <span class="preview-filename" id="previewFilename">buletin.jpg</span>
+                  <span class="preview-size" id="previewSize">1.2 MB • Optimizat</span>
+                  <span class="preview-status">✅ Document pregătit</span>
+                </div>
+                <button type="button" class="btn-remove-file" id="btnRemoveFile" title="Șterge poza">
+                  ✕
+                </button>
+              </div>
+            </div>
+
+            <div class="field-error" id="fileError">Te rugăm să atașezi o fotografie a buletinului pentru activare.</div>
+          </div>
+        </div>
+
+        <!-- ACORD GDPR -->
+        <div class="gdpr-box">
+          <label class="checkbox-label" for="gdprConsent">
+            <input type="checkbox" id="gdprConsent" name="gdprConsent" checked required>
+            <span class="checkmark"></span>
+            <span class="gdpr-text">
+              Sunt de acord cu prelucrarea datelor cu caracter personal în vederea înregistrării ca livrator partener Bolt Food, în conformitate cu normele GDPR.
+            </span>
+          </label>
+        </div>
+
+        <!-- PROGRES TRIMITERE -->
+        <div class="progress-box hidden" id="progressBox">
+          <div class="progress-bar-bg">
+            <div class="progress-bar-fill" id="progressBar"></div>
+          </div>
+          <p class="progress-text" id="progressText">Se optimizează documentul...</p>
+        </div>
+
+        <!-- EROARE GENERALĂ -->
+        <div class="alert-box alert-error hidden" id="globalError">
+          <span class="alert-icon">⚠️</span>
+          <span class="alert-msg" id="globalErrorMsg">A apărut o problemă. Te rugăm să verifici datele.</span>
+        </div>
+
+        <!-- BUTON SUBMIT -->
+        <button type="submit" class="btn-submit" id="btnSubmit">
+          <span class="btn-text">🚀 Trimite Înscrierea la Bolt Food</span>
+          <span class="btn-spinner hidden" id="btnSpinner"></span>
+        </button>
+
+        <p class="security-note">
+          🔒 Datele tale sunt transmise securizat prin criptare SSL direct către dispeceratul flotei.
+        </p>
+
+      </form>
+    </section>
+
+    <!-- ECRAN DE SUCCES (Afișat după trimitere) -->
+    <section class="success-screen hidden" id="successSection">
+      <div class="success-card">
+        <div class="success-icon-animated">
+          <svg viewBox="0 0 52 52" class="checkmark-svg">
+            <circle class="checkmark-circle" cx="26" cy="26" r="24" fill="none"/>
+            <path class="checkmark-check" fill="none" d="M14.1 27.2l7.1 7.2 16.7-16.8"/>
+          </svg>
+        </div>
+
+        <span class="success-badge">CERERE RECEPTIată CU SUCCES</span>
+        <h2 class="success-title">Felicitări, <span id="successName">Curier</span>!</h2>
+        
+        <p class="success-desc">
+          Înscrierea ta a fost înregistrată în sistemul flotei noastre. Un manager de flotă îți va valida datele și te va contacta în scurt timp pe WhatsApp sau telefon pentru activarea contului Bolt Food!
+        </p>
+
+        <div class="success-summary">
+          <div class="summary-item">
+            <span class="sum-label">Oraș de livrare:</span>
+            <span class="sum-val" id="successCity">Constanța</span>
+          </div>
+          <div class="summary-item">
+            <span class="sum-label">Vehicul:</span>
+            <span class="sum-val" id="successVehicle">🚗 Mașină</span>
+          </div>
+          <div class="summary-item">
+            <span class="sum-label">Status activare:</span>
+            <span class="sum-val status-green">⏳ În curs de verificare</span>
+          </div>
+        </div>
+
+        <div class="success-actions">
+          <a href="https://wa.me/40765465055?text=Buna%20ziua!%20Tocmai%20am%20completat%20formularul%20de%20inscriere%20pentru%20curier%20Bolt%20Food." class="btn-whatsapp" target="_blank" rel="noopener">
+            <span>💬 Deschide WhatsApp cu Flota</span>
+          </a>
+          <button type="button" class="btn-restart" id="btnRestart">
+            Înscrie o altă persoană
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="app-footer">
+      <p>© 2026 TimeToGo SRL (#2739) • Flotă Parteneră Autorizată Bolt Food România</p>
+      <p class="footer-sub">Aplicația este optimizată pentru dispozitive mobile Android & iOS.</p>
+    </footer>
+
+  </main>
+
+  <script src="app.js"></script>
+</body>
+</html>
