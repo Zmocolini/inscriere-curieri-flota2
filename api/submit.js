@@ -65,36 +65,48 @@ export default async function handler(req, res) {
       source: "Vercel Web App"
     };
 
-    // Trimitem catre Google Apps Script cu urmarire automata a redirectului 302
-    const gasResponse = await fetch(APPS_SCRIPT_URL, {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify(payload),
-      redirect: "follow",
-    });
+    // Trimitem catre Google Apps Script cu urmarire automata a redirectului 302 si retry automat
+    let responseData = null;
+    let lastError = "";
 
-    const responseText = await gasResponse.text();
-    let responseData;
-    try {
-      responseData = JSON.parse(responseText);
-    } catch (parseErr) {
-      console.warn("Răspunsul Apps Script nu este JSON:", responseText.slice(0, 200));
-      responseData = { success: true, raw: responseText };
+    for (let attempt = 1; attempt <= 2; attempt++) {
+      try {
+        const gasResponse = await fetch(APPS_SCRIPT_URL, {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify(payload),
+          redirect: "follow",
+        });
+
+        const responseText = await gasResponse.text();
+        const parsed = JSON.parse(responseText);
+        if (gasResponse.ok && parsed && parsed.success === true) {
+          responseData = parsed;
+          break;
+        } else {
+          lastError = (parsed && parsed.error) || `HTTP ${gasResponse.status}`;
+        }
+      } catch (attErr) {
+        lastError = attErr.message || String(attErr);
+      }
+      if (attempt < 2) {
+        await new Promise((r) => setTimeout(r, 1200));
+      }
     }
 
-    if (gasResponse.ok && (responseData.success !== false)) {
+    if (responseData && responseData.success === true) {
       return res.status(200).json({
         success: true,
         message: "Înscrierea a fost transmisă cu succes către flotă!",
         data: responseData
       });
     } else {
-      console.error("Eroare returnată de Apps Script:", responseData);
+      console.error("Eroare returnată de Apps Script:", lastError);
       return res.status(500).json({
         success: false,
-        error: responseData.error || "A apărut o problemă la înregistrare. Reîncercați."
+        error: "Eroare la salvarea în Google Sheets: " + (lastError || "Reîncercați.")
       });
     }
   } catch (error) {
